@@ -1,0 +1,200 @@
+{
+    "site_info": {
+        "description": "用于网络用户画像生成和流量预测的系统。" // 系统的总体描述信息
+    },
+    "Public_authentication": {
+        "login_page": {
+            "user_login_request": { // 用户登录请求数据
+                "username": "string", // 用户名
+                "password": "string"  // 密码
+            },
+            "admin_login_request": { // 管理员登录请求数据
+                "username": "string", // 管理员用户名
+                "password": "string"  // 管理员密码
+            }
+        },
+        "Public_analytics": {
+            "user_registration_request": { // 用户注册请求数据
+                "username": "string", // 用户名
+                "password": "string", // 密码
+                "email": "string"     // 邮箱
+            },
+            "admin_registration_request": { // 管理员注册请求数据
+                "username": "string", // 管理员用户名
+                "password": "string", // 管理员密码
+                "email": "string"     // 管理员邮箱
+            }
+        }
+    },
+    "Private_User_dashboard": {
+        "profile_response": { // 用户仪表板中的个人资料信息响应数据
+            "personal_info": { 
+                "name": "string", // 用户姓名
+                "email": "string", // 用户邮箱
+                "last_login": "datetime" // 上次登录时间，使用 datetime 类型
+            },
+            "user_rating": {  
+                "comment": "string",  // 用户对网络的评论
+                "rating": "float"     // 用户对网络的评分，应在 0.0-5.0 之间
+            },
+            "user_activity": {
+                "active_time": "datetime", // 用户活跃时间，使用 datetime 类型
+                "interest_points": [ // 用户兴趣点数据
+                    {
+                        "interest": "string", // 兴趣点
+                        "strength": "float"   // 兴趣强度
+                    }
+                ]
+            },
+            "user_detailinfo": { // 用户详细信息
+                "usual_location": {
+                    "latitude": "float",  // 常用位置纬度
+                    "longitude": "float"  // 常用位置经度
+                },
+                "usual_time": {
+                    "start_time": "datetime", // 常用时间段的开始时间
+                    "end_time": "datetime"    // 常用时间段的结束时间
+                },
+                "usual_connection_type": {
+                    "connection_type": "string" // 常用连接类型
+                },
+                "usual_facility": {
+                    "facility": "string" // 常用设备
+                },
+                "usual_traffic": {
+                    "traffic": "string" // 常用流量类型
+                },
+                "usual_App_type": {
+                    "App_type": "string" // 常用应用类型
+                },
+                "usual_network_score": {
+                    "network_score": "string" // 平均网络评分
+                }
+            }
+        },
+        "Public_analytics": {
+            "traffic_analysis_request": { // 流量状态分析请求数据
+                "region": {
+                    "region_name": "string", // 选择的地区名称
+                    "location": {
+                        "latitude": "float",  // 选择的地区纬度
+                        "longitude": "float"  // 选择的地区经度
+                    }
+                },
+                "time": {
+                    "start_time": "datetime", // 选择的时间范围开始时间
+                    "end_time": "datetime"    // 选择的时间范围结束时间
+                }
+            },
+            "traffic_analysis_response": { // 流量状态分析响应数据
+                "traffic_data": [
+                    {
+                        "timestamp": "datetime", // 流量数据时间戳，使用 datetime 类型
+                        "value": "float",      // 流量值
+                        "status": "active/inactive", // 状态（活跃/不活跃）
+                        "location": {
+                            "latitude": "float",  // 数据对应的纬度
+                            "longitude": "float"  // 数据对应的经度
+                        },
+                        "connection_type": "string",  // 连接类型
+                        "upload_speed": "float",      // 上传速度
+                        "download_speed": "float",    // 下载速度
+                        "latency": "float",           // 延迟
+                        "packet_loss_rate": "float",  // 丢包率
+                        "current_region_rating": "float" // 当前地区的网络评分
+                    }
+                ]
+            },
+            "predictions_response": { // 未来流量预测响应数据
+                "future_traffic": [
+                    {
+                        "timestamp": "datetime", // 预测数据时间戳，使用 datetime 类型
+                        "predicted_value": "float", // 预测的流量值
+                        "status": "active/inactive" // 状态（活跃/不活跃）
+                    }
+                ]
+            }
+        }
+    },
+    "Private_Admin_dashboard": {
+        "user_management_response": { // 用户管理响应数据
+            "user_list": [
+                {
+                    "username": "string", // 用户名
+                    "email": "string", // 用户邮箱
+                    "registration_date": "datetime", // 注册日期，使用 datetime 类型
+                    "status": "active/inactive", // 用户状态（活跃/不活跃）
+                    "Average_network_score": "float" // 平均网络评分
+                }
+            ]
+        },
+        "system_analysis_response": { // 系统分析响应数据
+            "overall_traffic": {
+                "global_distribution": [
+                    {
+                        "location": {
+                            "latitude": "float",  // 地区纬度
+                            "longitude": "float"  // 地区经度
+                        },
+                        "timestamp": "datetime", // 时间戳，使用 datetime 类型
+                        "traffic": "float"       // 流量值
+                    }
+                ]
+            },
+            "business_type_classification": {
+                "base_station_id": "string", // 基站ID
+                "business_types": [
+                    {
+                        "type": "string", // 业务类型
+                        "traffic_percentage": "float", // 流量百分比
+                        "user_count": "integer" // 用户数量
+                    }
+                ]
+            },
+            "congestion_period_analysis": {
+                "base_station_id": "string", // 基站ID
+                "congestion_periods": [
+                    {
+                        "start_time": "datetime", // 拥堵开始时间
+                        "end_time": "datetime",   // 拥堵结束时间
+                        "congestion_level": "float" // 拥堵级别
+                    }
+                ]
+            },
+            "resource_usage": {
+                "base_station_id": "string", // 基站ID
+                "resource_usage": [
+                    {
+                        "resource_type": "string", // 资源类型
+                        "usage_percentage": "float", // 使用百分比
+                        "average_rate": "float", // 平均速率
+                        "average_latency": "float" // 平均延迟
+                    }
+                ]
+            },
+            "predictive_analysis": { // 预测分析数据
+                "future_traffic": [
+                    {
+                        "timestamp": "datetime", // 未来流量时间戳，使用 datetime 类型
+                        "predicted_value": "float" // 预测的流量值
+                    }
+                ],
+                "network_health": [
+                    {
+                        "timestamp": "datetime", // 网络健康时间戳，使用 datetime 类型
+                        "predicted_value": "float" // 预测的健康值
+                    }
+                ]
+            }
+        },
+        "network_resource_optimization_response": { // 网络资源优化响应数据
+            "base_station_id": "string", // 基站ID
+            "suggestions": "string" // 优化建议
+        },
+        "fault_prevention_response": { // 故障预防响应数据
+            "base_station_id": "string", // 基站ID
+            "predicted_fault_time": "string", // 预测的故障时间
+            "prevention_measures": "string" // 预防措施
+        }
+    }
+}

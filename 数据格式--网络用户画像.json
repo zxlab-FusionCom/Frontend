@@ -1,0 +1,200 @@
+{
+    "site_info": {
+        "description": "用于网络用户画像生成和流量预测的系统。"
+    },
+    "Public_authentication": {
+        "login_page": {
+            "user_login_request": {
+                "username": "string",
+                "password": "string"
+            },
+            "admin_login_request": {
+                "username": "string",
+                "password": "string"
+            }
+        },
+        "Public_analytics": {
+            "user_registration_request": {
+                "username": "string",
+                "password": "string",
+                "email": "string"
+            },
+            "admin_registration_request": {
+                "username": "string",
+                "password": "string",
+                "email": "string"
+            }
+        }
+    },
+    "Private_User_dashboard": {
+        "profile_response": {
+            "personal_info": {
+                "name": "string",
+                "email": "string",
+                "last_login": "datetime"
+            },
+            "user_rating": {  
+                "comment": "string",  
+                "rating": "float"  
+            },
+            "user_activity": {
+                "active_time": "datetime",
+                "interest_points": [
+                    {
+                        "interest": "string",
+                        "strength": "float"
+                    }
+                ]
+            },
+            "user_detailinfo": {
+                "usual_location": {
+                    "latitude": "float",
+                    "longitude": "float"
+                },
+                "usual_time": {
+                    "start_time": "datetime",
+                    "end_time": "datetime"
+                },
+                "usual_connection_type": {
+                    "connection_type": "string"
+                },
+                "usual_facility": {
+                    "facility": "string"
+                },
+                "usual_traffic": {
+                    "traffic": "string"
+                },
+                "usual_App_type": {
+                    "App_type": "string"
+                },
+                "usual_network_score": {
+                    "network_score": "string"
+                }
+            }
+        },
+        "Public_analytics": {
+            "traffic_analysis_request": {
+                "region": {
+                    "region_name": "string",
+                    "location": {
+                        "latitude": "float",
+                        "longitude": "float"
+                    }
+                },
+                "time": {
+                    "start_time": "datetime",
+                    "end_time": "datetime"
+                }
+            },
+            "traffic_analysis_response": {
+                "traffic_data": [
+                    {
+                        "timestamp": "datetime",
+                        "value": "float",
+                        "status": "active/inactive",
+                        "location": {
+                            "latitude": "float",
+                            "longitude": "float"
+                        },
+                        "connection_type": "string",
+                        "upload_speed": "float",
+                        "download_speed": "float",
+                        "latency": "float",
+                        "packet_loss_rate": "float",
+                        "current_region_rating": "float"
+                    }
+                ]
+            },
+            "predictions_response": {
+                "future_traffic": [
+                    {
+                        "timestamp": "datetime",
+                        "predicted_value": "float",
+                        "status": "active/inactive"
+                    }
+                ]
+            }
+        }
+    },
+    "Private_Admin_dashboard": {
+        "user_management_response": {
+            "user_list": [
+                {
+                    "username": "string",
+                    "email": "string",
+                    "registration_date": "datetime",
+                    "status": "active/inactive",
+                    "Average_network_score": "float"
+                }
+            ]
+        },
+        "system_analysis_response": {
+            "overall_traffic": {
+                "global_distribution": [
+                    {
+                        "location": {
+                            "latitude": "float",
+                            "longitude": "float"
+                        },
+                        "timestamp": "datetime",
+                        "traffic": "float"
+                    }
+                ]
+            },
+            "business_type_classification": {
+                "base_station_id": "string",
+                "business_types": [
+                    {
+                        "type": "string",
+                        "traffic_percentage": "float",
+                        "user_count": "integer"
+                    }
+                ]
+            },
+            "congestion_period_analysis": {
+                "base_station_id": "string",
+                "congestion_periods": [
+                    {
+                        "start_time": "datetime",
+                        "end_time": "datetime",
+                        "congestion_level": "float"
+                    }
+                ]
+            },
+            "resource_usage": {
+                "base_station_id": "string",
+                "resource_usage": [
+                    {
+                        "resource_type": "string",
+                        "usage_percentage": "float",
+                        "average_rate": "float",
+                        "average_latency": "float"
+                    }
+                ]
+            },
+            "predictive_analysis": {
+                "future_traffic": [
+                    {
+                        "timestamp": "datetime",
+                        "predicted_value": "float"
+                    }
+                ],
+                "network_health": [
+                    {
+                        "timestamp": "datetime",
+                        "predicted_value": "float"
+                    }
+                ]
+            }
+        },
+        "network_resource_optimization_response": {
+            "base_station_id": "string",
+            "suggestions": "string"
+        },
+        "fault_prevention_response": {
+            "base_station_id": "string",
+            "predicted_fault_time": "string",
+            "prevention_measures": "string"
+        }
+    }
+}
