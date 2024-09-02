@@ -62,7 +62,7 @@
                     "facility": "string" // 常用设备
                 },
                 "usual_traffic": {
-                    "traffic": "string" // 常用流量类型
+                    "traffic": "string" // 常用流量统计
                 },
                 "usual_App_type": {
                     "App_type": "string" // 常用应用类型
