@@ -76,12 +76,15 @@ function initMap() {
         zoom: 13,
       });
 
-      AMap.plugin(["AMap.ToolBar", "AMap.Scale", "AMap.HawkEye", "AMap.MapType"], function () {
-        map.addControl(new AMap.ToolBar());
-        map.addControl(new AMap.Scale());
-        map.addControl(new AMap.HawkEye());
-        map.addControl(new AMap.MapType());
-      });
+      AMap.plugin(
+        ["AMap.ToolBar", "AMap.Scale", "AMap.HawkEye", "AMap.MapType"],
+        function () {
+          map.addControl(new AMap.ToolBar());
+          map.addControl(new AMap.Scale());
+          map.addControl(new AMap.HawkEye());
+          map.addControl(new AMap.MapType());
+        },
+      );
 
       placeSearch = new AMap.PlaceSearch({ map: map });
 
@@ -117,7 +120,7 @@ function searchLocation() {
     console.error("placeSearch 未定义");
     return;
   }
-  
+
   if (searchQuery.value.trim()) {
     placeSearch.search(searchQuery.value, (status, result) => {
       if (status === "complete" && result.info === "OK") {
@@ -151,7 +154,16 @@ function loadChartData() {
     },
     xAxis: {
       type: "category",
-      data: ["0:00", "3:00", "6:00", "9:00", "12:00", "15:00", "18:00", "21:00"],
+      data: [
+        "0:00",
+        "3:00",
+        "6:00",
+        "9:00",
+        "12:00",
+        "15:00",
+        "18:00",
+        "21:00",
+      ],
       axisLine: {
         lineStyle: {
           color: "#ffffff",
@@ -236,8 +248,10 @@ onMounted(() => {
   initMap();
   loadChartData();
 
-  const upDownTrafficChartDom = document.getElementById('upDownTrafficChart');
-  const baseStationTrafficChartDom = document.getElementById('baseStationTrafficChart');
+  const upDownTrafficChartDom = document.getElementById("upDownTrafficChart");
+  const baseStationTrafficChartDom = document.getElementById(
+    "baseStationTrafficChart",
+  );
   const upDownTrafficChart = echarts.init(upDownTrafficChartDom);
   const baseStationTrafficChart = echarts.init(baseStationTrafficChartDom);
 
